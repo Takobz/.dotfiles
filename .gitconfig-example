@@ -1,0 +1,18 @@
+[user]
+	name = <global-user-name>
+	email = <global-user-email-address>
+[alias]
+	ps = push
+	pl = pull
+	cm = commit
+	co = checkout
+	st = status
+	df = diff
+
+# Use below config for this specific directory and its subdirectories
+[IncludeIf "gitdir:~/different-projects-for-diff-profile/"]
+
+# If using different users reference that gitconfig for the specific project
+path = ~/.gitconfig-another-config
+[submodule]
+	recurse = true
