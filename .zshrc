@@ -124,3 +124,17 @@ export PATH="$PATH:/usr/local/go/bin"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# opencode
+export PATH=/home/takobz/.opencode/bin:$PATH
+export OPENCODE_EXPERIMENTAL_DISABLE_COPY_ON_SELECT=true
+
+# ================ BEGIN HELPER FUNCTIONS ===================
+
+jwtd() {
+    # decodes JWT tokens
+    # Usage: jwtd <your-jwt-token>
+    jq -R 'split(".") | .[0],.[1] | @base64d | fromjson' <<< "$1"
+}
+
+# ================ END HELPER FUNCTIONS ====================
